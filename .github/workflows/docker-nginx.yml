@@ -2,6 +2,8 @@ on:
   workflow_call:
 
 jobs:
+  call-workflow:
+    uses: ./.github/workflows/docker-nginx-ci.yml
   build:
     runs-on: ubuntu-latest
 
