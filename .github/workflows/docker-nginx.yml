@@ -16,10 +16,12 @@ jobs:
 
       - uses: cschleiden/replace-tokens@v1
         with:
-          files: '["./devops/devops-nginx.conf"]'
+          files: '["./devops/*.conf"]'
         env:
           DOMAIN: ${{vars.DOMAIN}}
           SUB_DOMAIN: ${{vars.SUB_DOMAIN}}
+          SUPABASE_APIKEY: ${{secrets.SUPABASE_APIKEY}}
+          SUPABASE_DOMAIN: ${{secrets.SUPABASE_DOMAIN}}
 
       - name: Print devops-nginx.conf
         run: cat ./devops/devops-nginx.conf
